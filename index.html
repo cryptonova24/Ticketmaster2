@@ -354,6 +354,22 @@
         </div>
 
     </div>
+
+    <script>
+    const scrollContainer = document.querySelector('.scroll-container');
+    const dots = document.querySelectorAll('.dot');
+
+    scrollContainer.addEventListener('scroll', () => {
+        const scrollLeft = scrollContainer.scrollLeft;
+        const ticketWidth = document.querySelector('.ticket-container').offsetWidth;
+        const activeIndex = Math.round(scrollLeft / ticketWidth);
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeIndex);
+        });
+    });
+    </script>
+
     <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
